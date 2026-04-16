@@ -2,8 +2,12 @@ import React from 'react';
 
 import classes from './Column.module.css';
 
-const Column: React.FC = ({ children }) => {
-    return <div className={classes.column}>{children}</div>;
+type ColumnProps = {
+    className?: string;
+};
+
+const Column: React.FC<ColumnProps> = ({ className, children }) => {
+    return <div className={[classes.column, className].filter(Boolean).join(' ')}>{children}</div>;
 };
 
 export default Column;

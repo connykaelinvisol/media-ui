@@ -1,0 +1,14 @@
+.nonScrollableColumn {
+    grid-template-rows: auto 1fr;
+    grid-auto-rows: unset;
+    overflow: hidden;
+}
+
+.scrollableContent {
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: grid;
+    grid-auto-rows: minmax(min-content, max-content);
+    grid-gap: var(--theme-spacing-Full);
+}
