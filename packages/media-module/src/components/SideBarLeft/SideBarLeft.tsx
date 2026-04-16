@@ -5,14 +5,19 @@ import { UploadButton } from '@media-ui/feature-asset-upload/src/components';
 import { AssetCollectionTree } from '@media-ui/feature-asset-collections';
 import { AssetSourceDescription, AssetSourceList } from '@media-ui/feature-asset-sources';
 
+import classes from './SideBarLeft.module.css';
+
 const SideBarLeft: React.FC = () => {
-    const components = [UploadButton, AssetSourceList, AssetCollectionTree, AssetSourceDescription].filter(Boolean);
+    const components = [AssetSourceList, AssetCollectionTree, AssetSourceDescription].filter(Boolean);
 
     return (
-        <Column>
-            {components.map((Component, index) => (
-                <Component key={index} />
-            ))}
+        <Column className={classes.nonScrollableColumn}>
+            <UploadButton />
+            <div className={classes.scrollableContent}>
+                {components.map((Component, index) => (
+                    <Component key={index + 1} />
+                ))}
+            </div>
         </Column>
     );
 };
