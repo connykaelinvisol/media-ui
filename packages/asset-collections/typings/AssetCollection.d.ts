@@ -1,14 +1,15 @@
 type AssetCollectionType = 'AssetCollection';
 
 type AssetCollectionId = string;
+type AssetCollectionTitle = string;
 
 interface AssetCollection extends GraphQlEntity {
     __typename: AssetCollectionType;
     readonly id: AssetCollectionId;
-    readonly title: string;
+    readonly assetSourceId: AssetSourceId;
+    readonly title: AssetCollectionTitle;
     parent?: AssetCollectionParent;
     tags?: Tag[];
     assetCount: number;
-    path?: string;
     canDelete: boolean;
 }
